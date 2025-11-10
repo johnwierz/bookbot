@@ -21,5 +21,10 @@ def character_count(text):
     for char in unique_characters:
         character_counts[char] = all_characters.count(char)
     #unique_characters = list(set(all_characters))
-    print(character_counts)
+    return character_counts
 
+# new function that takes the dictionary of characters and their counts and returns a sorted list of dictionaries
+
+def sort_dictionary(character_counts):
+    sorted_values = sorted(character_counts.values())
+    print(sorted_values)
