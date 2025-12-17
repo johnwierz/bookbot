@@ -1,3 +1,5 @@
+
+
 def get_word_count(text):
     words = text.split()
     word_count = len(words)
@@ -8,6 +10,7 @@ def get_word_count(text):
 # convert any character to lowercase using .lower(), no duplicates
 # use a dictionary of string -> integer
 # ergo {'p': 6121, 'r': 20818, 'o': 25225, ...}
+
 
 def character_count(text):
     lower_case = text.lower()
@@ -22,9 +25,24 @@ def character_count(text):
         character_counts[char] = all_characters.count(char)
     #unique_characters = list(set(all_characters))
     return character_counts
+    
+#def make_list(character_counts):
+#    character_counts_list = ["char", "num"]    
 
-# new function that takes the dictionary of characters and their counts and returns a sorted list of dictionaries
+def sort_on(character_counts_list):
+    return character_counts_list["num"]
+
+
 
 def sort_dictionary(character_counts):
-    sorted_values = sorted(character_counts.values())
-    print(sorted_values)
+    character_counts_list = []
+    for char, num in character_counts.items():
+        if char.isalpha():
+            character_counts_list.append({ "char": char, "num": num})
+    character_counts_list.sort(key=sort_on, reverse=True)
+    for item in character_counts_list:
+        print(f"{item['char']}: {item['num']}")
+    
+
+#    sorted_values = sorted(character_counts.values())
+#    print(sorted_values)
